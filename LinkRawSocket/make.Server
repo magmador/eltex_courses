@@ -1,0 +1,21 @@
+CFLAGS =
+CC = gcc
+SOURCES = Server.c
+OBJECTS = $(SOURCES:.c=.o)
+EXECUTABLE =  Server
+
+all: exec
+
+debug: CFLAGS += -g3
+debug: clean
+debug: exec
+
+exec: $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(EXECUTABLE) $(CFLAGS)
+
+.PHONY: clean
+clean:
+	rm $(EXECUTABLE) $(OBJECTS)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(CFLAGS) -c $(OBJECTS) $@

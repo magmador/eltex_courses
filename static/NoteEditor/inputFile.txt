@@ -1,0 +1,9 @@
+#include <termios.h>
+#include <sys/ioctl.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <curses.h>
+#include <locale.h>
+#include <string.h>
+#include <malloc.h>
+enum mode {check_args, open, cmd, save, input, close};
